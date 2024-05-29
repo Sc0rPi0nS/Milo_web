@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #171717;
+    font-family: 'Roboto',sans-serif;
+    height: 100vh;
+}
+h2{
+    color: #100f10;
+    font-size: 4vw;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.3vw #2ecc71;
+    position: relative;
+    margin-top: -30vh;
+    letter-spacing: 0.1em;
+}
+h2::before{
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #2ecc71;
+    overflow: hidden;
+    position: absolute;
+    content: attr(data-text);
+    border-right: 2px solid #2ecc71;
+    -webkit-text-stroke: 0vw #2ecc71;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate{
+    0%,
+    10%,
+    100%{
+        width: 0;
+    }
+
+    70%,
+    90%{
+        width: 100%;
+    }
+}
+
+/* button*/
+
+a{
+    height: 40px;
+    width: 200px;
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    color: #fff;
+    place-content: center;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #03a9f4, #d441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    cursor: pointer;
+    letter-spacing: 2px;
+    margin-top: 5vh;
+}
+
+@keyframes anime{
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+
+a:hover{
+    animation: anime 8s linear infinite;
+}
+
+a:before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    transition: 1s;
+}
+
+a:hover:before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: anime 8s linear infinite;
+}
